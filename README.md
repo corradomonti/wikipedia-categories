@@ -1,29 +1,31 @@
 # Cleansing Wikipedia Categories using Centrality
 ## by Paolo Boldi and Corrado Monti
 
-We propose a novel general technique aimed at pruning and cleansing the Wikipedia category hierarchy, with a tunable level of aggregation. Our approach is endogenous, since it does not use any information coming from Wikipedia articles, but it is based solely on the user-generated (noisy) Wikipedia category folksonomy itself. We show how the proposed techniques can help reduce the level of noise in the hierarchy and discuss how alternative centrality measures can differently impact on the result.
+We propose a novel general technique aimed at pruning and cleansing the Wikipedia category hierarchy, with a tunable level of aggregation. Our approach is endogenous, since it does not use any information coming from Wikipedia articles, but it is based solely on the user-generated (noisy) Wikipedia category folksonomy itself. 
 
 For more information see [the paper, presented at WWW2016 (companion), Wiki Workshop 2016, at Montreal](http://dl.acm.org/ft_gateway.cfm?id=2891111&ftid=1707848).
 
 # Provided dataset
 
-* `page2cat.tsv.gz` is a gzipped TSV file with the mapping from Wikipedia pages to cleansed categories, from the most important to the least important.
+We provide here a ready-to-use dataset, with a recategorization of the wikpedia pages to a set of 10 000 categories (the most important ones according to our approach). If you wish to use a different number of categories, please run the provided code. To download this file go to [Releases](https://github.com/corradomonti/wikipedia-categories/releases/), where you'll find:
+
+* `page2cat.tsv.gz` is a gzipped TSV file with the mapping from Wikipedia pages to cleansed categories, listed from the most important to the least important.
 * `ranked-categories.tsv.gz` is a gzipped TSV file with every Wikipedia category and our importance score.
 
-We also provide head of these files to show how they look like after unzip.
+We also provide head of these files (`page2cat-HEAD.tsv` and `ranked-categories-HEAD.tsv`) to show how they look like after unzip.
 
-If you use the dataset or the code, please cite:
-Boldi, Paolo, and Corrado Monti. "Cleansing wikipedia categories using centrality." Proceedings of the 25th International Conference Companion on World Wide Web. International World Wide Web Conferences Steering Committee, 2016.
+If you wish to use the dataset or the code, please cite:
+Paolo Boldi and Corrado Monti. "*Cleansing wikipedia categories using centrality.*" Proceedings of the 25th International Conference Companion on World Wide Web. International World Wide Web Conferences Steering Committee, 2016.
 
 Bibtex:
 
     @inproceedings{boldi2016cleansing,
-    title={Cleansing wikipedia categories using centrality},
-    author={Boldi, Paolo and Monti, Corrado},
-    booktitle={Proceedings of the 25th International Conference Companion on World Wide Web},
-    pages={969--974},
-    year={2016},
-    organization={International World Wide Web Conferences Steering Committee}
+	    title={Cleansing wikipedia categories using centrality},
+	    author={Boldi, Paolo and Monti, Corrado},
+	    booktitle={Proceedings of the 25th International Conference Companion on World Wide Web},
+	    pages={969--974},
+	    year={2016},
+	    organization={International World Wide Web Conferences Steering Committee}
     }
 
 
@@ -65,4 +67,4 @@ and then go to the directory `java`. There, run:
 * `ant` to compile
 * `. setcp.sh` to include the produced jar inside the Java classpath.
 
-Now you are ready to run `run.sh`.
+Now you are ready to run `run.sh`, which will assume to have the file `WIKIDUMP_XML` as `enwiki-20160407-pages-articles.xml.bz2`.
