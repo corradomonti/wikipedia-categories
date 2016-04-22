@@ -203,9 +203,10 @@ public class CategorySelector {
 		
 		Int2ObjectMap<IntSet> newPage2cat = categorySelector.recategorize(page2cat);
 		
-		LOGGER.info("Writing new page2cat map to " + args.getString("output-page2cat") + "...");
 		out = new PrintWriter(args.getString("output-page2cat"));
 		ProgressLogger pl = new ProgressLogger(LOGGER, "pages");
+		pl.expectedUpdates = newPage2cat.size();
+		pl.start("Writing new page2cat map to " + args.getString("output-page2cat") + "...");
 		for (Int2ObjectMap.Entry<IntSet> p2c : newPage2cat.int2ObjectEntrySet()) {
 			out.print(pageNames.get(p2c.getIntKey()));
 			out.print("\t");
