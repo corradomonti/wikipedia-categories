@@ -1,7 +1,7 @@
 WIKIDUMP_XML=enwiki-20160407-pages-articles.xml.bz2
 N_TOP_CATEGORIES=10000
 
-{ java it.unimi.di.wikipedia.categories.CategorySelectionToolchain --help 2>&1 | grep -q "Could not find or load main class"; } && { echo 'The jar containing it.unimi.di.wikipedia.* was not found in classpath. Please, have a look at the "Compile the code" part of readme.md.' ; exit 1; }
+{ java it.unimi.di.wikipedia.parsing.WikipediaCategoryProducer --help 2>&1 | grep -q "Could not find or load main class"; } && { echo 'The jar containing it.unimi.di.wikipedia.* was not found in classpath. Please, have a look at the "Compile the code" part of readme.md.' ; exit 1; }
 
 java it.unimi.di.wikipedia.parsing.WikipediaCategoryProducer $WIKIDUMP_XML ./ --bzip
 
